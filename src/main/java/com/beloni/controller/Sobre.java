@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class Confirma {
+public class Sobre {
 
-    @RequestMapping("confirma")
+    @RequestMapping("sobre")
     public String presenca(){
         return "convite";
     }
