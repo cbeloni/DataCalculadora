@@ -9,27 +9,29 @@
           href="../../css/capa.css"/>
 </head>
 <body>
-
 <div layout:fragment="conteudo" th:align="center">
     <div class="container">
-        <h2>Data Calculadora</h2>
-         <form action="#" th:action="@{/calcular}" th:object="${dataCalc}" method="post">
-            <p>Data: <input type="date" th:field="*{dataEntrada}" /></p>
-            <p>Tempo: <input type="text" th:field="*{tempoAdd}" /></p>
-            <p><input type="submit" value="Submit" /><input type="reset" value="Reset" /></p>
+        <h2>Data Calculadora - 8 x 5</h2>
+         <form action="#" th:action="@{/}" th:object="${dataCalc}" method="post">
+            <p>Data: <input type="text" id="input-date" th:field="*{dataEntrada}"/></p>
+            <p>+ Segundos: <input type="text" class="tempo" id="tempo" name="tempo" th:field="*{tempoAdd}" /></p>
+            <p><input type="submit" value="Calcular" /></p>
         </form>
         <h1>Resultado:</h1>
-        <p th:text="'Data: ' + ${dataCalc.dataEntrada}" />
-        <p th:text="'Tempo: ' + ${dataCalc.tempoAdd}" />
+        <p th:text="'Data: ' + ${dataSLA}" />
     </div>
 
-    <script type="text/javascript">
+    <script>
+        $(document).ready(function(){
+            $("#sumir").click(function(){
+                $(this).hide();
+            });
+        });
+        $(document).ready(function(){
+          $("#input-date").inputmask("99/99/9999 99:99:99");
+        });
     </script>
 </div>
-
-
-<script type="text/javascript"
-        src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 </body>
+
 </html>
