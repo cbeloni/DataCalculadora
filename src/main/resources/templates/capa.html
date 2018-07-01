@@ -13,6 +13,14 @@
 <div layout:fragment="conteudo" th:align="center">
     <div class="container">
         <h2>Data Calculadora</h2>
+         <form action="#" th:action="@{/calcular}" th:object="${dataCalc}" method="post">
+            <p>Data: <input type="date" th:field="*{dataEntrada}" /></p>
+            <p>Tempo: <input type="text" th:field="*{tempoAdd}" /></p>
+            <p><input type="submit" value="Submit" /><input type="reset" value="Reset" /></p>
+        </form>
+        <h1>Resultado:</h1>
+        <p th:text="'Data: ' + ${dataCalc.dataEntrada}" />
+        <p th:text="'Tempo: ' + ${dataCalc.tempoAdd}" />
     </div>
 
     <script type="text/javascript">

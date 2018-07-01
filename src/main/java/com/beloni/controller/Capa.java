@@ -1,7 +1,11 @@
 package com.beloni.controller;
 
+import com.beloni.model.DataCalc;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -19,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 public class Capa {
 
     @RequestMapping(value="/")
-    public String start(Map<String, Object> model, HttpSession session, HttpServletRequest request){
+    public String start(Map<String, Object> model, Model model2, HttpSession session, HttpServletRequest request){
         String data_casamento = "18 11 2017";
         DateFormat dateFormat = new SimpleDateFormat("dd MM yyyy");
         Long dias_faltantes = null;
@@ -44,7 +48,14 @@ public class Capa {
         System.out.println("Current dir:");
         System.out.println(System.getProperty("user.dir"));
         request.setAttribute("dias_faltantes", dias_faltantes);
+        model2.addAttribute("dataCalc", new DataCalc());
         return "capa";
 
+    }
+    @PostMapping(value="/calcular")
+    public String calcularData(@ModelAttribute DataCalc dataCalc, HttpSession session, HttpServletRequest request) {
+        //String entrada = request.("entrada");
+        System.out.println("Entrada: " + dataCalc.getTempoAdd());
+        return "capa";
     }
 }
