@@ -1,0 +1,14 @@
+spring.datasource.url=jdbc:postgresql://localhost/casamento
+spring.datasource.username=caue
+spring.datasource.password=postgres
+spring.jpa.generate-ddl=true
+welcome.message: Bem vindo
+
+
+spring.datasource.url=jdbc:postgres://souckbrhhppkex:2485549087b0a970e6e2c2a89f4007789af68c06c8a1a5e7700aca82124431c4@ec2-54-235-80-137.compute-1.amazonaws.com:5432/d6tq453b4d50h4
+spring.datasource.username=souckbrhhppkex
+spring.datasource.password=2485549087b0a970e6e2c2a89f4007789af68c06c8a1a5e7700aca82124431c4
+spring.jpa.generate-ddl=true
+welcome.message: Bem vindo
+
+
